@@ -1,0 +1,10 @@
+{
+  "source": "measured from human reference STLs (specter-diy snapcase Backside cavity + Frontside frame), 2026-10-11",
+  "provenance": "derived_reference_stl",
+  "outline": {"w": 58.2, "h": 125.2},
+  "thickness": 14.0,
+  "thickness_note": "full board sandwich (DISCO + shield + display), conservative",
+  "mounting_holes": [],
+  "reference_case": {"outer": [64.4, 131.4], "parts": 3,
+                     "front_rim_mm": 2.0, "end_treatment": "connector edge open"}
+}

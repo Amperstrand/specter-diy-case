@@ -1,0 +1,47 @@
+[
+ {
+  "name": "seated_board_interference",
+  "pass": true,
+  "value": {
+   "bottom_excess": 0.0,
+   "lid_clamp_mm3": 518.4
+  },
+  "note": "lid clamp is the NAMED contact; guides never touch"
+ },
+ {
+  "name": "rails_present_over_board",
+  "pass": true,
+  "value": 1.6,
+  "note": "full-height guides run alongside the sandwich on both walls"
+ },
+ {
+  "name": "connector_end_open",
+  "pass": true,
+  "value": 0.0,
+  "note": "v=0 end stays open (human reference treatment)"
+ },
+ {
+  "name": "removal_slide_clear",
+  "pass": true,
+  "value": 0.0,
+  "note": "sandwich slides out the open end (rails shear-free)"
+ },
+ {
+  "name": "solids_valid",
+  "pass": true,
+  "value": {
+   "bottom": 19368.8,
+   "lid": 11920.0
+  },
+  "note": "watertight B-reps, positive volume"
+ },
+ {
+  "name": "deterministic_rebuild",
+  "pass": true,
+  "value": {
+   "bottom": "0a2e20a5b0d53f27",
+   "lid": "6356523205998073"
+  },
+  "note": "hash-identical rebuild"
+ }
+]
