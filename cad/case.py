@@ -70,3 +70,25 @@ def lid():
              INT_U1 - P.LID_GAP - 1.2, INT_V1 - P.LID_GAP - 1.2,
              LID_Z0 - P.LID_LIP - 1, LID_Z0 + 1))
     return frame.fuse(lip)
+
+
+def scanner_tray():
+    """Back-mounted QR-scanner frame (measured from the human Scanner.stl):
+    56 x 123 x 9 open-back frame with 4.8mm cable channels along both
+    side walls — the playbook's 'cable channels as first-class geometry'."""
+    w, l, h = 56.0, 123.0, 9.0
+    wall = 2.0
+    ch_w = 4.8            # measured_reference: side channel width
+    cx, cy = w / 2, l / 2
+    frame = (
+        cq.Workplane("XY", origin=(cx, cy, 0))
+        .rect(w, l).extrude(h)
+        .edges("|Z").fillet(P.CORNER_R)
+    ).val()
+    # module pocket (open back = z=0 face down when mounted)
+    frame = frame.cut(_box(wall, wall, w - wall, l - wall, -0.1, h * 0.72))
+    # cable channels through the side walls (full length, measured width)
+    frame = frame.cut(_box(wall - 0.1, 47.0, wall + ch_w, 97.3, -0.1, h + 0.1))
+    frame = frame.cut(_box(w - wall - ch_w, 47.0, w - wall + 0.1, 88.1,
+                           -0.1, h + 0.1))
+    return frame

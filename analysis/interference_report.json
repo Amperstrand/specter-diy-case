@@ -31,9 +31,19 @@
   "pass": true,
   "value": {
    "bottom": 19368.8,
-   "lid": 11920.0
+   "lid": 11920.0,
+   "scanner_tray": 20675.0
   },
   "note": "watertight B-reps, positive volume"
+ },
+ {
+  "name": "scanner_tray_channels_module",
+  "pass": true,
+  "value": {
+   "channels_open": true,
+   "module_pocket_clear": true
+  },
+  "note": "4.8mm channels both walls; module pocket clear"
  },
  {
   "name": "deterministic_rebuild",

@@ -80,10 +80,22 @@ def main() -> int:
           round(sweep_v, 3),
           note="sandwich slides out the open end (rails shear-free)")
 
-    sv = {"bottom": round(vol(bottom), 1), "lid": round(vol(lid), 1)}
+    tray = C.scanner_tray()
+    sv = {"bottom": round(vol(bottom), 1), "lid": round(vol(lid), 1),
+          "scanner_tray": round(vol(tray), 1)}
     check("solids_valid", bottom.isValid() and lid.isValid()
-          and vol(bottom) > 0 and vol(lid) > 0, sv,
+          and tray.isValid() and all(v > 0 for v in sv.values()), sv,
           note="watertight B-reps, positive volume")
+
+    # cable channels present (measured 4.8mm, both walls, mid-length)
+    ch_ok = all(inter(cq.Solid.makeBox(3.0, 6.0, 3.0,
+                 cq.Vector(ux, 70.0, 2.0)), tray) < 0.01
+                for ux in (2.0, 56.0 - 2.0 - 3.0))
+    mod_clear = inter(cq.Solid.makeBox(40.0, 60.0, 4.0,
+                      cq.Vector(8.0, 30.0, 0.5)), tray) < 0.01
+    check("scanner_tray_channels_module", ch_ok and mod_clear,
+          {"channels_open": ch_ok, "module_pocket_clear": mod_clear},
+          note="4.8mm channels both walls; module pocket clear")
 
     def stl_hash(solid):
         w = cq.Workplane(obj=solid)

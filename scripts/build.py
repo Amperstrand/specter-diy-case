@@ -30,6 +30,7 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     export("bottom_shell", C.bottom_shell())
     export("lid", C.lid())
+    export("scanner_tray", C.scanner_tray())
 
 
 if __name__ == "__main__":
