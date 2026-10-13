@@ -31,7 +31,7 @@
   "pass": true,
   "value": {
    "bottom": 19368.8,
-   "lid": 11920.0,
+   "lid": 11852.5,
    "scanner_tray": 20675.0
   },
   "note": "watertight B-reps, positive volume"
@@ -50,7 +50,7 @@
   "pass": true,
   "value": {
    "bottom": "0a2e20a5b0d53f27",
-   "lid": "6356523205998073"
+   "lid": "35e334edc41f8e9a"
   },
   "note": "hash-identical rebuild"
  }

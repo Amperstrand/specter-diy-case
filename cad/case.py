@@ -48,8 +48,9 @@ def lid():
     cx, cy = (ox0 + ox1) / 2, (oy0 + oy1) / 2
     frame = (
         cq.Workplane("XY", origin=(cx, cy, LID_Z0))
-        .rect(ox1 - ox0, oy1 - oy0).extrude(1.6)
-        .edges("|Z").fillet(P.CORNER_R)
+        .rect(ox1 - ox0, oy1 - oy0).extrude(1.6)\
+        .edges("|Z").fillet(P.CORNER_R)\
+        .edges(">Z").chamfer(0.6)
     ).val()
     # measured_reference: ~2mm rim; aperture nearly the full face
     frame = frame.cut(_box(INT_U0 - 0.1, INT_V0 - 0.1, INT_U1 + 0.1,
